@@ -2,10 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: black;
-  color: white;
+}
+
+body {
+  @apply bg-black text-white overflow-x-hidden;
+}
+
+.content_title::before {
+  content: "";
+  @apply block w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mb-8;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent;
+}
+
+.scale-text {
+  transform-origin: center bottom;
+}
+
+.mask-reveal {
+  mask-image: linear-gradient(to right, transparent 0%, white 20%, white 80%, transparent 100%);
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.parallax-text {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.stagger-fade-in>* {
+  opacity: 0;
+}
+
+.letter-spacing-animation {
+  transition: letter-spacing 0.5s ease;
+}
+
+.letter-spacing-animation:hover {
+  letter-spacing: 0.5em;
 }
